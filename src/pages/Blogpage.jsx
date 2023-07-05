@@ -14,6 +14,7 @@ function Blogpage() {
   return (
     <div className="container">
       <h1>Our news</h1>
+      <Link to={"/blog/new"}>Add new post</Link>
       <div>
         {posts.map((post) => {
           return (
