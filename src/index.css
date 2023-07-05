@@ -56,7 +56,7 @@ main a:hover {
   text-decoration: underline;
 }
 
-.active {
+.active-link {
   color: var(--color-active);
   cursor: default;
 }
