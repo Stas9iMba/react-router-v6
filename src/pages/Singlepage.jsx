@@ -57,7 +57,7 @@ function Singlepage() {
             <Comments />
           </Await>
         </Suspense>
-        <Link to={`/blog/${id}/edit`}>Edit this post</Link>
+        <Link to={`/posts/${id}/edit`}>Edit this post</Link>
         <button onClick={goBack}>go Back</button>
         <Link to="/">go Home</Link>
 

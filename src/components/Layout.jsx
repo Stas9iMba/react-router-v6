@@ -10,7 +10,7 @@ function Layout() {
     <div>
       <header>
         <CustomLink to="/">Home</CustomLink>
-        <NavLink to="/blog" className={setActive}>
+        <NavLink to="/posts" className={setActive}>
           Blog
         </NavLink>
         <NavLink to="/about" style={setActiveNav}>

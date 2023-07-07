@@ -25,7 +25,7 @@ function Blogpage() {
         latest={latest}
         setSearchParams={setSearchParams}
       />
-      <Link to={"/blog/new"}>Add new post</Link>
+      <Link to={"/posts/new"}>Add new post</Link>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={posts}>
           {(resolvedPosts) => (
@@ -40,7 +40,7 @@ function Blogpage() {
                 )
                 .map((post) => {
                   return (
-                    <Link to={`/blog/${post.id}`} key={post.id}>
+                    <Link to={`/posts/${post.id}`} key={post.id}>
                       <li>{post.title}</li>
                     </Link>
                   );
@@ -54,7 +54,7 @@ function Blogpage() {
 }
 
 async function getPosts() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/postss");
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 
   // if (!res.ok) {
   //   throw new Response("", { status: res.status, statusText: "Not found" });
