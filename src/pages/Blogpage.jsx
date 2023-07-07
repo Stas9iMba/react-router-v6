@@ -2,6 +2,7 @@ import {
   Await,
   Link,
   defer,
+  json,
   useLoaderData,
   useSearchParams,
 } from "react-router-dom";
@@ -53,17 +54,32 @@ function Blogpage() {
 }
 
 async function getPosts() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://jsonplaceholder.typicode.com/postss");
+
+  // if (!res.ok) {
+  //   throw new Response("", { status: res.status, statusText: "Not found" });
+  // }
 
   return res.json();
 }
 
 const blogLoader = async () => {
   // console.log({ request, params });
+  const posts = await getPosts();
 
-  return defer({
-    posts: getPosts(),
-  });
+  if (!posts.length) {
+    throw json(
+      { message: "No posts found", reason: "Wrong URL" },
+      { status: 404 }
+    );
+  }
+
+  // return defer({
+  //   posts: getPosts(),
+  // });
+  return {
+    posts,
+  };
 };
 
 export { Blogpage, blogLoader };

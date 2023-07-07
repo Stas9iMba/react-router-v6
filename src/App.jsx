@@ -18,6 +18,7 @@ import { Loginpage } from "./pages/Loginpage";
 
 import { RequireAuth } from "./hoc/RequireAuth";
 import { AuthProvider } from "./hoc/AuthProvider";
+import { Errorpage } from "./pages/Errorpage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,7 +30,12 @@ const router = createBrowserRouter(
       </Route>
       {/* Переадресация на страницу, без сохранения в историю браузера */}
       <Route path="about-us" element={<Navigate to="/about" replace />} />
-      <Route path="blog" element={<Blogpage />} loader={blogLoader} />
+      <Route
+        path="blog"
+        element={<Blogpage />}
+        loader={blogLoader}
+        errorElement={<Errorpage />}
+      />
       <Route path="blog/:id" element={<Singlepage />} loader={postLoader} />
       <Route path="blog/:id/edit" element={<Editpost />} />
       <Route
