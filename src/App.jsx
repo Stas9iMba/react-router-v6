@@ -19,7 +19,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
-          <Route path="about" element={<Aboutpage />} />
+          <Route path="about/*" element={<Aboutpage />}>
+            <Route path="contact" element={<p>Our contact</p>} />
+            <Route path="team" element={<p>Our team</p>} />
+          </Route>
           {/* Переадресация на страницу, без сохранения в историю браузера */}
           <Route path="about-us" element={<Navigate to="/about" replace />} />
           <Route path="blog" element={<Blogpage />} />
